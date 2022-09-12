@@ -8,9 +8,9 @@ class Flappy{
         this.weight =1;
     }
     update(){
-        let curve = Math.sin(angle);
-        if (this.y > canvas.height - (this.height*3)){
-            this.y = canvas.height - (this.height*3);
+        let curve = Math.sin(angle) * 20;
+        if (this.y > canvas.height - (this.height*3)+ curve){
+            this.y = canvas.height - (this.height*3)+ curve;
             this.vy = 0;
         }else {
             this.vy += this.weight;
@@ -21,7 +21,7 @@ class Flappy{
             this.y = 0 + this.height;
             this.vy = 0;
         }
-        if (spacePressed) this.flap();
+        if (spacePressed && this.y > this.height*3) this.flap();
     }
     draw(){
         ctx.fillStyle ='red';

@@ -16,7 +16,9 @@ function animate(){
     //ctx.fillRect(10,canvas.height -90,50,50);
     flappy.update();
     flappy.draw();
+    handleParticles();
     requestAnimationFrame(animate);
+    angle+=0.2;
 }
 animate();
 
